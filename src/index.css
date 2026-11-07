@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream-100 font-sans text-charcoal antialiased;
+    overflow-x: clip;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-500;
+  }
+  ::selection {
+    @apply bg-gold-400 text-charcoal;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .section-y {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-gold-600;
+  }
+  .field {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-4 py-3 text-base text-charcoal
+      placeholder:text-charcoal-500/60 transition-colors focus:border-gold-500 focus:outline-none
+      focus:ring-2 focus:ring-gold-500/30;
+  }
+  .field[aria-invalid='true'] {
+    @apply border-spice ring-2 ring-spice/15;
+  }
+}
+
+/* Subtle scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
