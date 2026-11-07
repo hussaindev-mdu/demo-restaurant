@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { ContactShadows, Environment, Lightformer, Sparkles, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
-const MODEL_URL = '/models/handi.glb'
+const MODEL_URL = `${import.meta.env.BASE_URL}models/handi.glb`
 const REST_Y = 1.46 // lid pivot height (matches the Blender export)
 const LIFT = 1.5 // how far the lid floats up when open
 
